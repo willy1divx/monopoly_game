@@ -1,0 +1,177 @@
+#nicePic {
+	width: 400px;
+}
+div img {
+	position: relative;
+	bottom: 10px;
+}
+
+#stats {
+	color: yellow;
+	font-weight: 900;
+	background-color: black;
+}
+
+#body {
+ 	background-size: 1400px 700px;
+}
+
+#redWords {
+	background-color: red;
+	font-size: 30px;
+	color: white;
+}
+
+#greenWords {
+	background-color: green;
+	font-size: 30px;
+	color: white;
+}
+
+
+
+#cost{
+	margin: 0px;
+	padding: 0px;
+	position: relative;
+	bottom: 40px;
+}
+
+img {
+	z-index: -100;
+	margin-top: 0px;
+	width: 100%;
+	height: 195px;
+}
+
+#card {
+	background-color: white;
+	border: 2px solid black;
+	width: 400px;
+	height: 200px;
+	margin: 20px;
+	padding: 0;
+
+
+}
+
+#purple {
+	z-index: 100;
+	background-color: purple;
+	border: 2px solid black;
+	width: 398px;
+	height: 50px;
+	margin-bottom: 30px;
+}
+
+#lightBlue {
+	z-index: 100;
+	background-color: #6a9ef2;
+	border: 2px solid black;
+	width: 398px;
+	height: 50px;
+	margin-bottom: 30px;
+}
+
+#maroone {
+	z-index: 100;
+	background-color: #e03870;
+	border: 2px solid black;
+	width: 398px;
+	height: 50px;
+	margin-bottom: 30px;
+}
+
+#blue {
+	z-index: 100;
+	background-color: blue;
+	border: 2px solid black;
+	width: 398px;
+	height: 50px;
+	margin-bottom: 30px;
+}
+
+#green {
+	z-index: 100;
+	background-color: green;
+	border: 2px solid black;
+	width: 398px;
+	height: 50px;
+	margin-bottom: 30px;
+
+}
+
+#yellow {
+	z-index: 100;
+	background-color: yellow;
+	border: 2px solid black;
+	width: 398px;
+	height: 50px;
+	margin-bottom: 30px;
+}
+
+#red {
+	z-index: 100;
+	background-color: red;
+	border: 2px solid black;
+	width: 398px;
+	height: 50px;
+	margin-bottom: 30px;
+}
+
+#orange {
+	background-color: orange;
+	border: 2px solid black;
+	width: 398px;
+	height: 50px;
+	margin-bottom: 30px;
+}
+
+#chest {
+	background-color: yellow;
+	width: 100%;
+	margin-top: 0px;
+	height: 196px;
+	padding: 0px;
+}
+
+#chance {
+	background-color: orange;
+	width: 100%;
+	margin-top: 0px;
+	height: 196px;
+	padding: 0px;
+}
+
+#reading img {
+	width: 100%;
+	margin-top: 0px;
+	height: 196px;
+	padding: 0px;
+}
+
+#Pennsylvania img {
+	width: 100%;
+	margin-top: 5px;
+	height: 196px;
+	padding: 5px;
+}
+
+#chanceMessage {
+	height: 120px;
+	width: 25%;
+	background-color: orange;
+	margin-top: 10px;
+}
+
+#communityChest {
+	height: 120px;
+	width: 25%;
+	background-color: yellow;
+	margin-top: 10px;
+}
+
+button {
+	margin-top: 10px;
+}
+

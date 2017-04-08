@@ -1,0 +1,76 @@
+<!Doctype html>
+ <html>
+	<head>
+		<title>MONOPOLY</title>
+		<!-- jquery cdn -->
+		<!-- jquery cdn -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<!-- bootstrap cdn -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!-- javascript cdn -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<!-- AngulaeJs cdn -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		
+	</head>
+	<body class="container-fluid" ng-app="myApp" id="body" background ="img/board.jpg" style="background-width: 100%;">
+		<div class="row" ng-controller="myValues">
+			<div id="card" class="col-md-4">
+				<div id="{{seeet.color}}" class="col-md-12"><!-- <img ng-src="{{seeet.image}}"> --></div>
+				<br>
+				<br>
+				<div id="name" class="text-center" ><h1>{{seeet.name}}</h1></div>
+				<br>
+				<br>
+				<div id="cost" class="text-center"><h3>{{seeet.cost[seeet.house] | currency}}</h3></div>
+				<div id="rent"class="text-center"><h3 id="price" >{{seeet.rent | currency}}</h3></div>
+			</div>
+			<div id="card" class="col-md-4">
+				<div id="{{set.color}}" class="col-md-12"><br><h1 class="text-center" >{{set.cardName}}</h1><h2 class="text-center" >{{set.cardMessage}}</h2></div>
+				<br>
+				<br>
+				<div id="name" class="text-center"><h1>{{set.name}}</h1><!-- <h1>{{set.message}}</h1> --></div>
+				<br>
+				<br>
+				<div id="cost" class="text-center"><h3>{{set.cost[set.house] | currency}}</h3></div>
+				<div id="rent"class="text-center"><h3>{{set.rent | currency}}</h3></div>
+			</div>
+			<div id="card" class="col-md-4">
+				<div id="{{seet.color}}" class="col-md-12"><!-- <img ng-src="{{seet.image}}" > --></div>
+				<br>
+				<br>
+				<div id="name" class="text-center" ><h1>{{seet.name}}</h1></div>
+				<br>
+				<br>
+				<div id="cost" class="text-center"><h3>{{seet.cost[seet.house] | currency}}</h3></div>
+				<div id="rent"class="text-center"><h3>{{seet.rent | currency}}</h3></div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 text-center"></div>
+				<div class="col-md-4 text-center"><button class="btn btn-warning" ng-click="update()">roll dice</button><button id="button1"class="btn btn-success" ng-click="buy(set)">Buy/Sell</button><h2 id="stats">owner: {{set.owner}}</h2></div>
+				<!-- <div id="{{set.messageColor}}" class="col-md-4"><h2>{{set.message}}</h2></div> -->
+			</div>
+			<div class="row">
+				<div class="col-md-4" >
+					 <h2 id="stats">player1 name : {{player1.name}}</h2>
+				<!--<h2>player2 name : {{player2.name}}</h2>
+					<h2>player3 name : {{player3.name}}</h2>
+					<h2>player4 name : {{player4.name}}</h2> -->
+				</div>
+				<div class="col-md-4">
+					<h2 id="stats">player1 Cash : {{player1.cash | currency}}</h2>
+					<!-- <h2 id="stats">player2 Cash : {{player2.cash | currency}}</h2>
+					<h2 id="stats">player3 Cash : {{player3.cash | currency}}</h2>
+					<h2 id="stats">player4 Cash : {{player4.cash | currency}}</h2>  -->
+					<h2 id="{{set.words}}" >POSITION : {{set.place}}</h2>
+				
+				</div>
+				<div  class="col-md-4"><img id="nicePic" ng-src="{{set.image}}" ></div>
+			</div>
+		</div>
+
+		<script type="text/javascript"  src="js/app.js"></script>
+
+	</body>
+</html>
