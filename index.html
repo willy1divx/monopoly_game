@@ -14,8 +14,31 @@
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		
 	</head>
-	<body class="container-fluid" ng-app="myApp" id="body" background ="img/board.jpg" style="background-width: 100%;">
-		<div class="row" ng-controller="myValues">
+	<body class="container-fluid" ng-app="myApp" id="body" background ="img/board.jpg" style="background-width: 100%;" ng-controller="myValues" >
+		<div ng-hide="myVar">
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4" >
+					<img src="img/logo.png" height="200" width="200" style="margin-top: 100px;" >
+				</div>
+				<div class="col-md-4"></div>
+			</div>
+				<br><br>
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4 text-center" class="stats">
+					<input  type="text" ng-model="player1.name" placeholder="ENTER YOUR NAME HERE">
+				</div>
+				<div class="col-md-4"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div><button class="col-md-4 btn btn-success text-center" ng-click="getName()">START GAME</button></div>
+				<div class="col-md-4"></div>
+			</div>
+		</div>
+
+		<div class="row" ng-show="myVar">
 			<div id="card" class="col-md-4">
 				<div id="{{seeet.color}}" class="col-md-12"><!-- <img ng-src="{{seeet.image}}"> --></div>
 				<br>
@@ -63,11 +86,12 @@
 					<!-- <h2 id="stats">player2 Cash : {{player2.cash | currency}}</h2>
 					<h2 id="stats">player3 Cash : {{player3.cash | currency}}</h2>
 					<h2 id="stats">player4 Cash : {{player4.cash | currency}}</h2>  -->
-					<h2 id="{{set.words}}" >POSITION : {{set.place}}</h2>
+					<h2 id="{{set.words}}" id="stats" >POSITION : {{set.place}}</h2>
 				
 				</div>
 				<div  class="col-md-4"><img id="nicePic" ng-src="{{set.image}}" ></div>
 			</div>
+			
 		</div>
 
 		<script type="text/javascript"  src="js/app.js"></script>

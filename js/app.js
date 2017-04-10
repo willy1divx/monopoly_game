@@ -202,7 +202,7 @@ app.controller('myValues', function($scope){
 		house:0
 
 	},{
-		image:"img/b&o.gif",
+		image:"img/bo.jpg",
 		name:"B & O R.R.",
 		color:"reading",
 		cost:[200,300,450,675,1000,1500,2200,3300],
@@ -380,7 +380,6 @@ app.controller('myValues', function($scope){
 	]
 
 	var player1 = {
-		name:"William",
 		position: 0,
 		cash:1500,
 		injail:false
@@ -412,9 +411,22 @@ app.controller('myValues', function($scope){
 	$scope.player2 = player2;
 	$scope.player3 = player3;
 	$scope.player4 = player4;
+	
+	$scope.update = function(){
+		update();
+	}
+
+	$scope.myVar = false;
 	var counter = 0;
 	var total = 0;
-	$scope.update = function (){
+	
+	$scope.getName = function (){
+		$scope.myVar = true;
+		update();
+	}
+
+	var update = function (){
+		   
 		  set[total].cardMessage = " ";
 		 x = Math.floor(Math.random() * 10) + 2;
 
@@ -474,7 +486,7 @@ app.controller('myValues', function($scope){
 			player4.cash = player4.cash - (set[total].rent[set[total].house]);
 			player2.cash = player2.cash + (set[total].rent[set[total].house])*3;
 		}
-		if (set[total].owner == 'William'){
+		if (set[total].owner == player1.name){
 			console.log(set[total].rent[set[total].house]);
 			player3.cash = player3.cash - (set[total].rent[set[total].house]);
 			player4.cash = player4.cash - (set[total].rent[set[total].house]);
