@@ -1,4 +1,24 @@
 var app = angular.module('myApp',[]);
+myVar1 = false;
+myvar2 = true;
+myvar3 = true;
+var config = {
+    apiKey: "AIzaSyCdzoKQtRYUiM3dE4zyQSZznxZCW6CXPBI",
+    authDomain: "monopoly-1acdc.firebaseapp.com",
+    databaseURL: "https://monopoly-1acdc.firebaseio.com",
+    projectId: "monopoly-1acdc",
+    storageBucket: "monopoly-1acdc.appspot.com",
+    messagingSenderId: "439086178442"
+  };
+
+  firebase.initializeApp(config);
+  var database = firebase.database();
+  var ref = database.ref('scores');
+  // ref.on('value', gotData, errData);
+//   $scope.myData = new firebase("https://monopoly-1acdc.firebaseio.com/
+// ");
+	
+
 
 app.controller('myValues', function($scope){
 	var set = [
@@ -419,14 +439,32 @@ app.controller('myValues', function($scope){
 	$scope.myVar = false;
 	var counter = 0;
 	var total = 0;
+	array = [];
+	$scope.array = array;
+	allScores = [];
+	$scope.topName = player1.name;
+	$scope.topScore = player1.cash;
+	sevenScore = 5;
+	sevenName = "Star Lord";
+	sixScore = 10;
+	sixName = "Mister Fantastic";
+	fifthScore = 20;
+	fifthName = "Professor X";
+	fourthScore = 37;
+	fourthName = "Mark Zuckerburg";
+	thirdScore = 75;
+	thirdName = "Donald Trump";
+	secondScore = 150;
+	secondName = "Warren Buffet";
 	
 	$scope.getName = function (){
-		$scope.myVar = true;
+		$scope.myVar1 = true;
+		$scope.myVar2 = true;
 		update();
 	}
 
 	var update = function (){
-		   
+		  
 		  set[total].cardMessage = " ";
 		 x = Math.floor(Math.random() * 10) + 2;
 
@@ -480,21 +518,21 @@ app.controller('myValues', function($scope){
 			
 		}
 		if (set[total].owner == 'Trump'){
-			console.log(set[total].rent[set[total].house]);
+			
 			player1.cash = player1.cash - (set[total].rent[set[total].house]);
 			player3.cash = player3.cash - (set[total].rent[set[total].house]);
 			player4.cash = player4.cash - (set[total].rent[set[total].house]);
 			player2.cash = player2.cash + (set[total].rent[set[total].house])*3;
 		}
 		if (set[total].owner == player1.name){
-			console.log(set[total].rent[set[total].house]);
+			
 			player3.cash = player3.cash - (set[total].rent[set[total].house]);
 			player4.cash = player4.cash - (set[total].rent[set[total].house]);
 			player2.cash = player2.cash - (set[total].rent[set[total].house]);
 			player1.cash = player1.cash + (set[total].rent[set[total].house])*3;
 		}
 		if (set[total].owner == 'Zuckerberg'){
-			console.log(set[total].rent[set[total].house]);
+			
 			player3.cash = player3.cash + (set[total].rent[set[total].house])*3;
 			player4.cash = player4.cash - (set[total].rent[set[total].house]);
 			player2.cash = player2.cash - (set[total].rent[set[total].house]);
@@ -530,29 +568,25 @@ app.controller('myValues', function($scope){
 						player1.cash = player1.cash - set[total].cost[set[total].house];
 						set[total].house += 1;
 						set[total].owner = player1.name;
-						console.log(set[total]);
-						console.log(set[total].owner);
+						
 					}
 					if (x == 2){
 						player2.cash = player2.cash - set[total].cost[set[total].house];
 						set[total].house += 1;
 						set[total].owner = player2.name;
-						console.log(set[total]);
-						console.log(set[total].owner);
+						
 					}	
 					if (x == 3){
 						player3.cash = player3.cash - set[total].cost[set[total].house];
 						set[total].house += 1;
 						set[total].owner = player3.name;
-						console.log(set[total]);
-						console.log(set[total].owner);
+						
 					}
 					if (x == 4){
 						player4.cash = player4.cash - set[total].cost[set[total].house];
 						set[total].house += 1;
 						set[total].owner = player4.name;
-						console.log(set[total]);
-						console.log(set[total].owner);
+						
 					}
 
 			}		
@@ -736,12 +770,136 @@ app.controller('myValues', function($scope){
 			      if (player2.cash < 0 && player3.cash < 0 && player4.cash < 0){
 			      	set.place = "       YOU WIN!!!";
 			      		$scope.set.words = "redWords";
+			      		youWin();
 			      }
 			       if (player1.cash < 0){
 			      	set.place = "       YOU LOSE!!!";
 			      		$scope.set.words = "redWords";
+			      		youWin();
 			      }
 			      $scope.set.place = set.place;
 		};
+
+		var youWin = function(){
+			$scope.myVar1 = true;
+			$scope.myVar2 = false;
+			$scope.myVar3 = true;
+			
+
+			$scope.topName = player1.name;
+			$scope.topScore = player1.cash;
+
+			ref.push({name:$scope.topName, score:$scope.topScore});
+
+			ref.on('value', function(snapshot){
+				obj = snapshot.val();
+				console.log(obj);
+				highest = player1.cash;
+				namest = player1.name;
+				// sort(obj);
+				for ( var x in obj){
+					console.log(obj[x].name, obj[x].score);
+					if (obj[x].score < fourthScore && obj[x].score >= fifthScore){
+						sevenScore = sixScore;
+						sevenName = sixName;
+						sixScore = fifthScore;
+						sixName = fifthName;
+						fifthScore = obj[x].score;
+						fifthName = obj[x].name;	
+					}
+					if (obj[x].score < thirdScore && obj[x].score >= fourthScore){
+						sevenScore = sixScore;
+						sevenName = sixName;
+						sixScore = fifthScore;
+						sixName = fifthName;
+						fifthScore = fourthScore;
+						fifthName = fourthName;
+						fourthScore = obj[x].score;
+						fourthName = obj[x].name;	
+					}
+					if (obj[x].score < secondScore && obj[x].score >= thirdScore){
+						sevenScore = sixScore;
+						sevenName = sixName;
+						sixScore = fifthScore;
+						sixName = fifthName;
+						fifthScore = fourthScore;
+						fifthName = fourthName;
+						fourthScore = thirdScore;
+						fourthName = thirdName;
+						thirdScore = obj[x].score;
+						thirdName = obj[x].name;	
+					}
+					if (obj[x].score >= secondScore && obj[x].score < highest){
+						sevenScore = sixScore;
+						sevenName = sixName;
+						sixScore = fifthScore;
+						sixName = fifthName;
+						fifthScore = fourthScore;
+						fifthName = fourthName;
+						fourthScore = thirdScore;
+						fourthName = thirdName;
+						thirdScore = secondScore;
+						thirdName = secondName;
+						secondScore = obj[x].score;
+						secondName = obj[x].name;	
+					}
+					if (obj[x].score >= highest){
+						sevenScore = sixScore;
+						sevenName = sixName;
+						sixScore = fifthScore;
+						sixName = fifthName;
+						fifthScore = fourthScore;
+						fifthName = fourthName;
+						fourthScore = thirdScore;
+						fourthName = thirdName;
+						thirdScore = secondScore;
+						thirdName = secondName;
+						secondScore = highest;
+						secondName = namest;
+						highest = obj[x].score;
+						namest = obj[x].name;
+						
+					}
+					
+					
+				console.log("the best score is : " + namest,highest);
+				$scope.topScore = highest;
+				$scope.topName = namest;
+				$scope.secondScore = secondScore;
+				$scope.secondName = secondName;
+				$scope.thirdScore = thirdScore;
+				$scope.thirdName = thirdName;
+				$scope.fourthScore = fourthScore;
+				$scope.fourthName = fourthName;
+				$scope.fifthScore = fifthScore;
+				$scope.fifthName = fifthName;
+				$scope.sixScore = sixScore;
+				$scope.sixName = sixName;
+				$scope.sevenScore = sevenScore;
+				$scope.sevenName = sevenName;
+				$scope.$apply();
+				}
+				
+				var sort = function(obj){
+					for ( var x in obj){
+						allScore.push(obj[x].score);
+					}
+					var orderedScores = allScore.sort(function(a, b){return a-b});
+					for (var j = 0; j < 7 ; j++){
+						for (var i = 0; i < orderedScores.length ; i++){
+							if (orderedScores[j] == obj[i].scores){
+								listNames[j] = obj[i].name;
+								listScores[j] = obj[i].score;
+							}
+						}
+					}
+					console.log(listNames,listScores);
+				}
+
+			});
+
+	
+		};
+
 });
 

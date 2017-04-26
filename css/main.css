@@ -22,13 +22,25 @@ input {
 	background-color: white;
 }
 
+td {
+	margin: 10px;
+}
 
+th {
+	margin: 10px;
+}
 #nicePic {
 	width: 400px;
 }
 div img {
 	position: relative;
 	bottom: 10px;
+}
+
+.stats {
+	color: yellow;
+	font-weight: 900;
+	background-color: black;
 }
 
 #stats {
@@ -52,8 +64,6 @@ div img {
 	font-size: 30px;
 	color: white;
 }
-
-
 
 #cost{
 	margin: 0px;
